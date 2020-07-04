@@ -8,8 +8,8 @@
 This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Reference. Chocolatey uses a special version of NuGet.Core that allows us to do more than was initially possible. As such there are certain things to be aware of:
 
 * the package xmlns schema url may cause issues with nuget.exe
-* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces 
-* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements 
+* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces
+* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements
 -->
 
 <!-- You can embed software files directly into packages, as long as you are not bound by distribution rights. -->
@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>__REPLACE__</version>
+    <version>1.1.5</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -34,11 +34,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>doom2-maps-btsx-e1 (Install)</title>
-    <authors>__REPLACE_AUTHORS_OF_SOFTWARE_COMMA_SEPARATED__</authors>
+    <title>Back to Saturn X (Doom2 Megawad)</title>
+    <authors>esselfortium</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://_Software_Location_REMOVE_OR_FILL_OUT_</projectUrl>
-    <!--<iconUrl>http://cdn.rawgit.com/__REPLACE_YOUR_REPO__/master/icons/doom2-maps-btsx-e1.png</iconUrl>-->
+    <projectUrl>https://doomwiki.org/wiki/Back_to_Saturn_X</projectUrl>
+    <iconUrl>https://cdn.statically.io/img/doomwiki.org/w/images/c/c7/BTSXE1.jpg</iconUrl>
     <!-- <copyright>Year Software Vendor</copyright> -->
     <!-- If there is a license Url available, it is required for the community feed -->
     <!-- <licenseUrl>Software License Location __REMOVE_OR_FILL_OUT__</licenseUrl>
@@ -47,21 +47,28 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>doom2-maps-btsx-e1 SPACE_SEPARATED</tags>
-    <summary>__REPLACE__</summary>
-    <description>__REPLACE__MarkDown_Okay </description>
+    <tags>doom2-maps-btsx-e1 doom2 megawad</tags>
+    <summary>doom2 megawad</summary>
+    <description>
+
+Back to Saturn X is a series of megawad/partial conversion projects for Doom II, designed to be compatible with DOOM2.EXE. Created by the Back to Saturn X Team, it features an exclusive texture set, original music, and a new palette and colormap.
+
+Song and album titles from Guided by Voices provide the title, episode names, and map names. Titles and song lyrics are incorporated into the text screens as well.
+
+The first episode was originally released on December 10, 2012 for Doom's 19th birthday, featuring twenty regular levels, one secret level, and a recurring train station hub. An additional level was inserted in a later release on August 1, 2013. The first non-beta release was on February 27, 2017, and inserted another additional level. The episode received one of the 2013 Cacowards.
+
+The second episode was released on 1 September, 2014, with another twenty-two levels, a secret level, four episode hubs and an ending screen. It received one of the 2014 Cacowards.
+
+On June 25, 2020, the first episode was added to the list of official add-ons for the 2019 re-release of Doom II. This curated version replaces all the Guided by Voices-derived level names and its title is reduced to the acronym "BTSX Episode 1". The title screen was changed accordingly, and jokingly expands the title to "Better Texturing with Startan X".
+
+    </description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
-    <!-- =============================== -->      
+    <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
-    <!--<dependencies>
-      <dependency id="" version="__MINIMUM_VERSION__" />
-      <dependency id="" version="[__EXACT_VERSION__]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_INCLUSIVE]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_EXCLUSIVE)" />
-      <dependency id="" />
-      <dependency id="chocolatey-core.extension" version="1.1.0" />
-    </dependencies>-->
+    <dependencies>
+      <dependency id="freedoom" version="0.12.1"/>
+    </dependencies>
     <!-- chocolatey-core.extension - https://chocolatey.org/packages/chocolatey-core.extension
          - You want to use Get-UninstallRegistryKey on less than 0.9.10 (in chocolateyUninstall.ps1)
          - You want to use Get-PackageParameters and on less than 0.11.0
